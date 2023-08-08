@@ -8,6 +8,9 @@
 #define SPEEDLIMIT_NORMAL 25
 #define SPEEDLIMIT_SPORT 30
 
+#define WHEEL_CIRCUMFERENCE 785 // 690 for original M365 motor
+#define GEAR_RATIO 15 // 15 for original M365 motor
+
 // motor current limits for invividual modes in mA
 // note that hacked firmware allows up to 55amps motor phase current
 #define PH_CURRENT_MAX_ECO 15000
