@@ -79,10 +79,8 @@ eButtonEvent getButtonEvent(M365State_t *p_M365State)
   if (!button_down && double_pending && now - button_up_ts > DOUBLE_GAP_MILLIS_MAX) {
     double_pending = false;
     button_event = SINGLE_PRESS;
-	} else if (button_down &&
-    (now - button_down_ts >= SINGLE_PRESS_MILLIS_MAX) && // if time over single press
-      ((now - button_down_ts <= VERY_LONG_PRESS_MILLIS_MAX) || // if time lower than very long press OR brake is not pressed
-      p_M365State->brake_active == false)) {
+	} else if (!button_down &&
+    (now - button_down_ts >= SINGLE_PRESS_MILLIS_MAX) && (now - button_down_ts <= VERY_LONG_PRESS_MILLIS_MAX) ) {
     double_pending = false;
     button_event = LONG_PRESS;
   } else if (button_down && now - button_down_ts > VERY_LONG_PRESS_MILLIS_MAX) {
